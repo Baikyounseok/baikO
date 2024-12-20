@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Popups Example</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gowun+Batang&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Gowun Batang', serif;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            z-index: 1000;
+            text-align: center;
+            width: 300px; /* 기본 너비 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        #final-message {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    max-height: 80%; /* 높이를 제한하여 스크롤 가능 */
+    background-color: #666262;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Gowun Batang', serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+    overflow-y: auto; /* 텍스트가 길 경우 세로 스크롤 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 강조된 텍스트 */
+#final-message strong {
+    font-weight: bold;
+    color: #000;
+}
+
+        /* 팝업 1 */
+        .popup1 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup1 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup1 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup1 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        /* 팝업 2 */
+        .popup2 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup2 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup2 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup2 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        /* 팝업 3 */
+        .popup3 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup3 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup3 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup3 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        /* 팝업 4 */
+        .popup4 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup4 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup4 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup4 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        /* 팝업 5 */
+        .popup5 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup5 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 60%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup5 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 60%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup5 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        /* 팝업 6 */
+        .popup6 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup6 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 60%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup6 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 60%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup6 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 7 */
+.popup7 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 25px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup7 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup7 button {
+    position: absolute;
+    bottom: 950px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 25px;
+    cursor: pointer;
+}
+        .popup7 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 8 */
+.popup8 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup8 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup8 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup8 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+
+/* 팝업 9 */
+.popup9 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup9 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup9 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup9 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 10 */
+        .popup10 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 1450px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup10 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup10 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup10 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 11 */
+.popup11 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 1450px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup11 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup11 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup11 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 12 */
+.popup12 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup12 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 60%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup12 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 60%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup12 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 13 */
+.popup13 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup13 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 60%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup13 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 60%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup13 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 14 */
+.popup14 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 1450px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 20px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup14 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup14 button {
+    position: absolute;
+    bottom: 950px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+}
+        .popup14 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 15 */
+.popup15 { 
+            position: absolute;
+            background-color: #fefefe; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 1450px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 20px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup15 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup15 button {
+    position: absolute;
+    bottom: 950px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+}
+        .popup15 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 16 */
+.popup16 { 
+            position: absolute;
+            background-color: #fcf67d; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup16 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup16 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup16 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 17 */
+.popup17 { 
+            position: absolute;
+            background-color: #ffc284; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup17 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup17 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup17 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 18 */
+.popup18 { 
+            position: absolute;
+            background-color: #ff8317; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup18 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup18 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup18 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 19 */
+.popup19 { 
+            position: absolute;
+            background-color: #ff8317;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup19 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup19 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup19 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 20 */
+.popup20 { 
+            position: absolute;
+            background-color: #ff8317;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup20 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 40%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup20 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 40%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup20 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 21 */
+.popup21 { 
+            position: absolute;
+            background-color: #ff8317;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup21 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup21 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup21 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 22 */
+.popup22 { 
+            position: absolute;
+            background-color: #ff8317;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup22 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup22 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup22 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 23 */
+.popup23 { 
+            position: absolute;
+            background-color: #ff7f10;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup23 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup23 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup23 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 24 */
+.popup24 { 
+            position: absolute;
+            background-color: #fe7b08;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup24 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup24 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup24 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 25 */
+.popup25 { 
+            position: absolute;
+            background-color: #fe7700;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup25 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup25 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup25 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 26 */
+.popup26 { 
+            position: absolute;
+            background-color: #ca5e00;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup26 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup26 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup26 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 27 */
+.popup27 { 
+            position: absolute;
+            background-color: #9ea1b1;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup27 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup27 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup27 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 28 */
+.popup28 { 
+            position: absolute;
+            background-color: #9ea1b1; 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup28 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup28 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup28 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 29 */
+.popup29 { 
+            position: absolute;
+            background-color: #9ea1b1;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 1450px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup29 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup29 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup29 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 30 */
+.popup30 { 
+            position: absolute;
+            background-color: #6b6d7a;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup30 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup30 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup30 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 31 */
+.popup31 { 
+            position: absolute;
+            background-color: #585a65;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup31 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup31 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup31 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 32 */
+.popup32 { 
+            position: absolute;
+            background-color: #42444d;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup32 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup32 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup32 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 33 */
+.popup33 { 
+            position: absolute;
+            background-color: #27282e;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup33 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup33 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup33 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 34 */
+.popup34 { 
+            position: absolute;
+            background-color: #1b1c20;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup34 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup34 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup34 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 35 */
+.popup35 { 
+            position: absolute;
+            background-color: #141518;
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup35 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup35 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup35 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 36 */
+.popup36 { 
+            position: absolute;
+            background-color: rgb(79, 79, 79);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 100px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup36 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup36 button {
+    position: absolute;
+    bottom: 700px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 50px;
+    cursor: pointer;
+}
+        .popup36 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 37 */
+.popup37 { 
+            position: absolute;
+            background-color: rgb(0, 0, 0);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup37 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup37 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup37 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 38 */
+.popup38 { 
+            position: absolute;
+            background-color: rgb(0, 0, 0);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup38 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup38 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup38 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 39 */
+.popup39 { 
+            position: absolute;
+            background-color: rgb(79, 79, 79);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 100px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup39 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup39 button {
+    position: absolute;
+    bottom: 700px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 50px;
+    cursor: pointer;
+}
+        .popup39 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 40 */
+.popup40 { 
+            position: absolute;
+            background-color: rgb(0, 0, 0);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup40 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup40 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup40 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 41 */
+.popup41 { 
+            position: absolute;
+            background-color: rgb(0, 0, 0);
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup41 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup41 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup41 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* 팝업 42 */
+.popup42 { 
+            position: absolute;
+            background-color: rgb(0, 0, 0); 
+            width: 2100px;
+            height: 1050px;
+            padding-top: 850px;   /* 위쪽 여백 */
+            padding-left: 100px;  /* 왼쪽 여백 */
+            padding-right: 1000px;/*아래 여백 */
+            margin-bottom: 100px; /* 아래쪽 여백 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 15px; /* 팝업 텍스트 폰트 크기 */
+        }
+
+        .popup42 p {
+    position: absolute;
+    top: 700;  /* 원하는 위치로 세로 배치 */
+    left: 50%;
+    transform: translateX(-50%);  /* 가로 중앙 정렬 */
+}
+        .popup42 button {
+    position: absolute;
+    bottom: 1000px; /* 버튼의 세로 위치 (팝업 하단에서 100px 위로) */
+    left: 50%;
+    transform: translateX(-50%); /* 버튼 가로 중앙 정렬 */
+    padding: 3px 5px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+        .popup42 button:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 42개의 팝업 생성 -->
+    <!-- 1 팝업 -->
+    <div class="popup popup1" id="popup1">  
+        <p>"빌어먹을 강 소장."</p>
+        <button onclick="closePopup('popup1', 'popup2')">서 반장을 쳐다본다.</button>
+    </div>
+    <!-- 2 팝업 -->
+    <div class="popup popup2" id="popup2">
+        <p>서 반장이 가래침과 함께 험상궂은 얼굴로 말을 내뱉었다.</p>
+        <button onclick="closePopup('popup2', 'popup3')">반장의 눈을 바라본다.</button>
+    </div>
+    <!-- 3 팝업 -->
+    <div class="popup popup3" id="popup3">
+        <p>그의 탁한 눈에는 어두운 구멍이 비춰지고 있었다.</p>
+        <button onclick="closePopup('popup3', 'popup4')">갱도를 바라본다.</button>
+    </div>
+    <!-- 4 팝업 -->
+    <div class="popup popup4" id="popup4">
+        <p>작년까지만 해도 북적대던 갱도의 입구는 금방이라도 사람을 잡아 삼킬 법한 어두움으로 우릴 반겨주었다. 
+        </p>
+        <button onclick="closePopup('popup4', 'popup5')">고개를 돌린다.</button>
+    </div>
+    <!-- 5 팝업 -->
+    <div class="popup popup5" id="popup5">
+        <p>“그래도 이번이 진짜 마지막이잖아요 반장님.”</p>
+        <button onclick="closePopup('popup5', 'popup6')">막내를 본다.</button>
+    </div>
+    <!-- 6 팝업 -->
+    <div class="popup popup6" id="popup6">
+        <p>당시 막내였던 두원이가 반장에게 말했다. </p>
+        <button onclick="closePopup('popup6', 'popup7')">반장을 본다.</button>
+    </div>
+    <!-- 7 팝업 -->
+    <div class="popup popup7" id="popup7">  
+        <p>“강 소장 그 새끼!!.. 그 새끼는.. 어휴”</p>
+        <button onclick="closePopup('popup7', 'popup8')">고개를 돌린다.</button>
+    </div>
+    <!-- 8 팝업 -->
+    <div class="popup popup8" id="popup8">
+        <p>막내의 말에 터질 듯한 어조로 말하던 반장은 목이라도 막히는 듯 말을 거뒀다.</p>
+        <button onclick="closePopup('popup8', 'popup9')">갱도를 바라본다.</button>
+    </div>
+    <!-- 9 팝업 -->
+    <div class="popup popup9" id="popup9">
+        <p>72년 대홍수를 끝으로 폐쇄된 광명광산 앞에 모인 건 거진 1년만이었다. </p>
+        <button onclick="closePopup('popup9', 'popup10')">어둠을 응시한다.</button>
+    </div>
+    <!-- 10 팝업 -->
+    <div class="popup popup10" id="popup10">
+        <p>“뭔 새우젓 창고야 새우젓 창고는.. 그때 돈도 안주고 못 들어가게 막아서 여기 있는 사람 다 실직자 만들어놓고..”</p>
+        <button onclick="closePopup('popup10', 'popup11')">박형을 바라본다.</button>
+    </div>
+    <!-- 11 팝업 -->
+    <div class="popup popup11" id="popup11">
+        <p>나보다 고참이었던 박형이 궁시렁거렸다. 그의 눈에도 시꺼먼 구멍이 맺혀있었다. </p>
+        <button onclick="closePopup('popup11', 'popup12')">박형의 눈을 본다.</button>
+    </div>
+    <!-- 12 팝업 -->
+    <div class="popup popup12" id="popup12">
+        <p>“그래도 형님들 이번이 마지막이잖습니까. 후딱 갔다가 올라오죠”</p>
+        <button onclick="closePopup('popup12', 'popup13')">막내를 본다.</button>
+    </div>
+    <!-- 13 팝업 -->
+    <div class="popup popup13" id="popup13">  
+        <p>막내가 다시 한번 고참들을 달랬다.</p>
+        <button onclick="closePopup('popup13', 'popup14')">박형을 본다.</button>
+    </div>
+    <!-- 14 팝업 -->
+    <div class="popup popup14" id="popup14">
+        <p>“그래도 왜 하필 우리냐고, 홍수 났을 때 마지막까지 개고생하던 것도 우리였는데” </p>
+        <button onclick="closePopup('popup14', 'popup15')">박형을 보고있다.</button>
+    </div>
+    <!-- 15 팝업 -->
+    <div class="popup popup15" id="popup15">
+        <p>박형이 조금 더 큰 소리로 웅얼거렸다. 그의 눈에는 여전히 그 공허한 구멍이 맺혀있었다.</p>
+        <button onclick="closePopup('popup15', 'popup16')">박형을 보고 있다.</button>
+    </div>
+    <!-- 16 팝업 -->
+    <div class="popup popup16" id="popup16">
+        <p>...</p>
+        <button onclick="closePopup('popup16', 'popup17')">갱도를 바라본다.</button>
+    </div>
+    <!-- 17 팝업 -->
+    <div class="popup popup17" id="popup17">
+        <p>....</p>
+        <button onclick="closePopup('popup17', 'popup18')">갱도를 바라본다.</button>
+    </div>
+    <!-- 18 팝업 -->
+    <div class="popup popup18" id="popup18">
+        <p>.....</p>
+        <button onclick="closePopup('popup18', 'popup19')">갱도를 바라본다.</button>
+    </div>
+    <!-- 19 팝업 -->
+    <div class="popup popup19" id="popup19">  
+        <p>그로부터 몇분 뒤였을까. 줄 담배를 태워대던 반장이 마지막 담배를 바닥에 튕기고는 말했다.</p>
+        <button onclick="closePopup('popup19', 'popup20')">반장을 바라본다.</button>
+    </div>
+    <!-- 20 팝업 -->
+    <div class="popup popup20" id="popup20">
+        <p>“가자. 갔다 와서 소주나 한 잔 하자고”</p>
+        <button onclick="closePopup('popup20', 'popup21')">갱도를 바라본다.</button>
+    </div>
+    <!-- 21 팝업 -->
+    <div class="popup popup21" id="popup21">
+        <p>그 말에 우리는 기다렸다는 듯 서 반장의 뒤를 따랐다. </p>
+        <button onclick="closePopup('popup21', 'popup22')">갱도로 걸어간다.</button>
+    </div>
+    <!-- 22 팝업 -->
+    <div class="popup popup22" id="popup22">
+        <p>당시 광산의 소유주였던 녀석이 대홍수 때 생긴 피해 복구를 못해주겠다며 파산을 하고는 그 밑에 있던 강 소장이 광산을 헐값에 사들였었다. </p>
+        <button onclick="closePopup('popup22', 'popup23')">갱도로 다가 설수록 습기가 느껴진다.</button>
+    </div>
+    <!-- 23 팝업 -->
+    <div class="popup popup23" id="popup23">
+        <p>시흥 쪽에서 피해 복구 운운하던 소리가 잠잠해지자. 강 소장은 새우젓 장사를 하겠다며 광산을 새우젓 창고로 만들 계획을 세웠다. </p>
+        <button onclick="closePopup('popup23', 'popup24')">망가진 장비들이 보인다.</button>
+    </div>
+    <!-- 24 팝업 -->
+    <div class="popup popup24" id="popup24">
+        <p>그런데 이 소장놈이 안전검사가 필요하다는 이유로 1년 전에 실직자로 만든 우리를 불러모아 전문가들, 선생님들 칭호를 써가며 그때 못 줬던 임금에 이번 것까지 주겠다는 말로 다시 한번 우릴 막장에 욱여넣으려고 했다.</p>
+        <button onclick="closePopup('popup24', 'popup25')">무너진 길을 따라 걷는다.</button>
+    </div>
+    <!-- 25 팝업 -->
+    <div class="popup popup25" id="popup25">  
+        <p>당연지사 다른 팀들은 일체 거부했지만, 급작스레 아내가 아파 병원비에 허덕이는 서 반장이 마지못해 하겠다고 한 것이었다. </p>
+        <button onclick="closePopup('popup25', 'popup26')">팀원들을 살펴본다.</button>
+    </div>
+    <!-- 26 팝업 -->
+    <div class="popup popup26" id="popup26">
+        <p>이에 우리도 서 반장과의 정을 생각해 다시 한번 모인 것이었다. </p>
+        <button onclick="closePopup('popup26', 'popup27')">모두 고개를 숙이고 있디.</button>
+    </div>
+    <!-- 27 팝업 -->
+    <div class="popup popup27" id="popup27">
+        <p>갱도 초입에서 우리는 1년만에 매는 장비와 시설을 체크했다. 고지대에 초입이라 그런지 생각보다 멀쩡한 게 많아 다행스러웠다.</p>
+        <button onclick="closePopup('popup27', 'popup28')">먼지쌓인 장비를 챙긴다.</button>
+    </div>
+    <!-- 28 팝업 -->
+    <div class="popup popup28" id="popup28">
+        <p>불은 다 나갔지만 리프트는 멀쩡해 보여 그걸 타고 내려가기로 했다. </p>
+        <button onclick="closePopup('popup28', 'popup29')">로프를 만지작 거린다.</button>
+    </div>
+    <!-- 29 팝업 -->
+    <div class="popup popup29" id="popup29">
+        <p>박형이 반장에게 리프트가 좀 불안하다는 얘기를 했지만, 반장은 힐끔 쳐다보더니 묵묵히 리프트를 올렸다. </p>
+        <button onclick="closePopup('popup29', 'popup30')">박형의 표정이 안좋다.</button>
+    </div>
+    <!-- 30 팝업 -->
+    <div class="popup popup30" id="popup30">
+        <p>우리는 올라온 리프트를 타고 어두운 갱도로 내려갔다.</p>
+        <button onclick="closePopup('popup30', 'popup31')">덜커덩거리는 소리가 난다.</button>
+    </div>
+    <!-- 31 팝업 -->
+    <div class="popup popup31" id="popup31">  
+        <p>1년 전 그때와 같게도 멀어지는 빛을 보며 우리는 말을 아꼈다.</p>
+        <button onclick="closePopup('popup31', 'popup32')">작아지는 빛을 바라본다.</button>
+    </div>
+    <!-- 32 팝업 -->
+    <div class="popup popup32" id="popup32">
+        <p>...</p>
+        <button onclick="closePopup('popup32', 'popup33')">암흑이다.</button>
+    </div>
+    <!-- 33 팝업 -->
+    <div class="popup popup33" id="popup33">
+        <p>....</p>
+        <button onclick="closePopup('popup33', 'popup34')">아무것도 보이지 않는다.</button>
+    </div>
+    <!-- 34 팝업 -->
+    <div class="popup popup34" id="popup34">
+        <p>.....</p>
+        <button onclick="closePopup('popup34', 'popup35')">아무것도 보이지 않는다.</button>
+    </div>
+    <!-- 35 팝업 -->
+    <div class="popup popup35" id="popup35">
+        <p>.....</p>
+        <button onclick="closePopup('popup35', 'popup36')">아무것도 보이지 않는다.</button>
+    </div>
+    <!-- 36 팝업 -->
+    <div class="popup popup36" id="popup36">
+        <p>!</p>
+        <button onclick="closePopup('popup36', 'popup37')">아무것도 보이지 않는다.</button>
+    </div>
+    <!-- 37 팝업 -->
+    <div class="popup popup37" id="popup37">  
+        <p>갑작스레 우리의 머리 위에서 굉음이 울려퍼졌다. </p>
+        <button onclick="closePopup('popup37', 'popup38')">리프트가 기울어진다.</button>
+    </div>
+    <!-- 38 팝업 -->
+    <div class="popup popup38" id="popup38">
+        <p>리프트의 속도가 빨라지기 시작했다. </p>
+        <button onclick="closePopup('popup38', 'popup39')">몸이 떠오르는게 느껴진다.</button>
+    </div>
+    <!-- 39 팝업 -->
+    <div class="popup popup39" id="popup39">
+        <p>!</p>
+        <button onclick="closePopup('popup39', 'popup40')">정신을 잃었다.</button>
+    </div>
+    <!-- 40 팝업 -->
+    <div class="popup popup40" id="popup40">
+        <p>...</p>
+        <button onclick="closePopup('popup40', 'popup41')">1시간 뒤</button>
+    </div>
+    <!-- 41 팝업 -->
+    <div class="popup popup41" id="popup41">
+        <p>....</p>
+        <button onclick="closePopup('popup41', 'popup42')">1시간 뒤</button>
+    </div>
+    <!-- 마지막 팝업 (42번째) -->
+    <div class="popup popup42" id="popup42">
+        <p>....</p>
+        <button onclick="closePopup('popup42')">1시간 뒤 </button>
+    </div>
+
+    <script>
+        // 팝업 열기
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // 팝업 닫기 및 다음 팝업 열기
+        function closePopup(currentId, nextId = null) {
+            document.getElementById(currentId).style.display = 'none';
+            if (nextId) {
+                showPopup(nextId);
+            } else {
+                document.getElementById('overlay').style.display = 'none';
+            }
+        }
+
+        // 페이지 로드 시 첫 팝업 열기
+        window.onload = function () {
+            showPopup('popup1');
+        };
+    </script>
+
+<div id="final-message" class="hidden">
+    <p>
+        몇 시간 후 백씨는 눈을 떴다. 갱도 안에는 빛 쪼가리 하나 없었다.<br><br><br><br>
+        눈을 뜬것과 감은게 크게 다르지 않은 듯 그는 눈을 몇차례 껌뻑이더니 더듬 더듬 랜턴을 찾기 시작했다.<br><br>
+        다행인지도 거의 다 도착한 시점에서 리프트의 줄이 풀려 목숨은 부지할 수 있었다.<br><br><br><br>
+        그 때 희미하게 신음소리가 들려왔다. 박형인 것 같았다.<br><br><br><br>
+        백씨는 박형의 소리가 들리는 쪽으로 가고자 몸을 움직였는데, 다리에 감각이 없었다.<br><br><br><br>
+        그 때 백씨가 소리쳐 박형을 불렀다.<br><br><br><br>
+        “형님! 형님! 괜찮으세요? 형님 저 다리에 감각이 없어요.”<br><br><br><br>
+        비교적 가까운 곳에서 말소리가 울려펴졌다. 두원이었다.<br><br><br><br>
+        “형님 남쪽. 리프트 남쪽에 비상 신호기 있어요. 형님, 전 못움직일 것 같아요. 뭔가에 깔린 것 같아요.”<br><br>
+        백씨는 그 소리를 듣고 남쪽을 향해 기기 시작했다.<br><br><br><br>
+        들려오던 박형의 신음소리는 더 이상 들리지 않았다.<br><br><br><br>
+        백씨가 가는 길에 둔탁한 무언가가 만져졌다.<br><br><br><br>
+        사람인 것 같았다.<br><br><br><br>
+        크기로 보아 서 반장인 것 같았다.<br><br><br><br>
+        백씨는 몰려오는 절망감과 고통을 참아내며 기었다.<br><br><br><br>
+        “두원아 아직 괜찮지? 형 거의 다 온 것 같다. 조금만 참아라!”<br><br><br><br>
+        두원에게서 답은 돌아오지 않았다.<br><br><br><br>
+        ...<br><br><br><br>
+        ....<br><br><br><br>
+        몇분 정도 더 기은 후에야 벽이 만져졌다. 그 벽 위에 붉은색 버저가 있을 터였다.
+    </p>
+    <a href="결말.html">
+        <img src="buzzer-image.png" alt="buzzer-image.png" style="width: 100px; height: 100px; display: block; margin: 20px auto;">
+    </a>
+</div>
+</div>
+
+</body>
